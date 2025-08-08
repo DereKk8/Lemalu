@@ -397,3 +397,25 @@ Navbar súper limpio y moderno inspirado en Koala
         font-size: 18px;
     }
 }
+
+/* Decoraciones de mascotas en navbar */
+.navbar-modern::after {
+    content: '🐾';
+    position: absolute;
+    right: -20px;
+    top: -15px;
+    font-size: 1.8rem;
+    opacity: 0.4;
+    animation: pawPrint 3s ease-in-out infinite;
+}
+
+@keyframes pawPrint {
+    0%, 100% { 
+        opacity: 0.3; 
+        transform: scale(1) rotate(0deg); 
+    }
+    50% { 
+        opacity: 0.6; 
+        transform: scale(1.1) rotate(5deg); 
+    }
+}

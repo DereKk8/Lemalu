@@ -39,6 +39,7 @@ function initNavbar() {
                     const elementPosition = targetElement.offsetTop;
                     const offsetPosition = elementPosition - headerOffset;
 
+                    console.log(`Navegando a: ${targetId}`);
                     window.scrollTo({
                         top: offsetPosition,
                         behavior: 'smooth'
@@ -48,6 +49,8 @@ function initNavbar() {
                     if (isMenuOpen) {
                         closeMobileMenu();
                     }
+                } else {
+                    console.warn(`Sección no encontrada: ${targetId}`);
                 }
             });
         }

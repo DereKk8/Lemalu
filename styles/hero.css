@@ -331,6 +331,40 @@ Hero Section moderno con tarjetas expansivas
     50% { transform: translateY(-20px) rotate(5deg); }
 }
 
+/* Decoraciones adicionales de mascotas */
+.hero-section::before {
+    content: '🐕';
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    font-size: 4rem;
+    opacity: 0.2;
+    animation: petFloat 8s ease-in-out infinite;
+    z-index: 1;
+}
+
+.hero-section::after {
+    content: '🐱';
+    position: absolute;
+    bottom: 20%;
+    right: 8%;
+    font-size: 3.5rem;
+    opacity: 0.2;
+    animation: petFloat 10s ease-in-out infinite reverse;
+    z-index: 1;
+}
+
+@keyframes petFloat {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg) scale(1); 
+        opacity: 0.1;
+    }
+    50% { 
+        transform: translateY(-20px) rotate(5deg) scale(1.1); 
+        opacity: 0.2;
+    }
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .hero-content {

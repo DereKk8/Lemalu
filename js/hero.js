@@ -9,8 +9,7 @@ Funcionalidades para tarjetas expansivas del hero
 const serviceCards = document.querySelectorAll('.service-card');
 const cardsContainer = document.querySelector('.cards-container');
 
-// State
-let expandedCard = null;
+// State - simplified for static cards
 let isAnimating = false;
 
 // Initialize
@@ -19,187 +18,18 @@ document.addEventListener('DOMContentLoaded', function() {
     initHeroAnimations();
 });
 
-// Hero Cards Initialization
+// Hero Cards Initialization - Static Cards Only
 function initHeroCards() {
+    // Cards are now static - no click functionality needed
+    console.log('Hero cards initialized as static elements');
+    
+    // Optional: Add subtle animation on card info
     serviceCards.forEach(card => {
-        // Click event for expansion - ONLY WAY TO EXPAND
-        card.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Card clicked:', this.dataset.service); // Debug
-            
-            if (isAnimating) {
-                console.log('Animation in progress, ignoring click');
-                return;
-            }
-            
-            if (expandedCard === this) {
-                console.log('Contracting same card');
-                contractCard(this);
-            } else {
-                console.log('Expanding card');
-                if (expandedCard) {
-                    console.log('Contracting previous card first');
-                    contractCard(expandedCard);
-                    setTimeout(() => expandCard(this), 300);
-                } else {
-                    expandCard(this);
-                }
-            }
-        });
-
-        // Close button functionality
-        const closeButton = card.querySelector('.close-expanded');
-        if (closeButton) {
-            closeButton.addEventListener('click', function(e) {
-                e.stopPropagation();
-                contractCard(card);
-            });
-        }
-
-        // Prevent clicks on expanded content from triggering card events
-        const expandedContent = card.querySelector('.card-expanded');
-        if (expandedContent) {
-            expandedContent.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
-        }
-    });
-
-    // Click outside to close expanded card
-    document.addEventListener('click', function(e) {
-        if (expandedCard && !expandedCard.contains(e.target)) {
-            console.log('Click outside detected, closing expanded card');
-            contractCard(expandedCard);
-        }
-    });
-
-    // Close on escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && expandedCard) {
-            contractCard(expandedCard);
-        }
+        animateCardInfo(card);
     });
 }
 
-// Expand Card Function
-function expandCard(card) {
-    console.log('expandCard called for:', card.dataset.service);
-    
-    if (expandedCard === card || isAnimating) {
-        console.log('Already expanded or animating, returning');
-        return;
-    }
-    
-    isAnimating = true;
-    console.log('Starting expansion animation');
-
-    // Set as expanded FIRST
-    expandedCard = card;
-    card.classList.add('expanded');
-    
-    // Get the expanded content element
-    const expandedContent = card.querySelector('.card-expanded');
-    if (!expandedContent) {
-        console.error('No expanded content found!');
-        isAnimating = false;
-        return;
-    }
-    
-    console.log('Found expanded content, proceeding with animation');
-
-    // Hide other elements immediately
-    serviceCards.forEach(otherCard => {
-        if (otherCard !== card) {
-            otherCard.classList.add('hero-hidden');
-        }
-    });
-
-    // Hide hero text
-    const heroText = document.querySelector('.hero-text');
-    if (heroText) {
-        heroText.classList.add('hero-hidden');
-    }
-
-    // Disable body scroll
-    document.body.style.overflow = 'hidden';
-
-    // Force show expanded content with direct styles
-    setTimeout(() => {
-        expandedContent.style.opacity = '1';
-        expandedContent.style.visibility = 'visible';
-        expandedContent.style.transform = 'scale(1)';
-        expandedContent.style.display = 'flex';
-        
-        console.log('Expanded content should now be visible');
-        
-        // Animate features with stagger
-        const features = card.querySelectorAll('.feature-item');
-        features.forEach((feature, index) => {
-            feature.style.transform = 'translateY(30px)';
-            feature.style.opacity = '0';
-            feature.style.transition = 'all 0.4s ease';
-            
-            setTimeout(() => {
-                feature.style.transform = 'translateY(0)';
-                feature.style.opacity = '1';
-            }, index * 150);
-        });
-
-        isAnimating = false;
-        console.log('Expansion complete');
-    }, 50);
-
-    // Track analytics
-    trackCardExpansion(card.dataset.service);
-}
-
-// Contract Card Function
-function contractCard(card, resetExpanded = true) {
-    console.log('contractCard called for:', card ? card.dataset.service : 'null');
-    
-    if (!card || isAnimating) {
-        console.log('No card or animating, returning');
-        return;
-    }
-    
-    isAnimating = true;
-    console.log('Starting contraction animation');
-
-    // Remove expanded class
-    card.classList.remove('expanded');
-
-    // Reset expanded content with force
-    const expandedContent = card.querySelector('.card-expanded');
-    if (expandedContent) {
-        expandedContent.style.opacity = '0';
-        expandedContent.style.visibility = 'hidden';
-        expandedContent.style.transform = 'scale(0.95)';
-        expandedContent.style.display = 'none';
-    }
-
-    // Show all cards again
-    serviceCards.forEach(serviceCard => {
-        serviceCard.classList.remove('hero-hidden');
-    });
-
-    // Show hero text again
-    const heroText = document.querySelector('.hero-text');
-    if (heroText) {
-        heroText.classList.remove('hero-hidden');
-    }
-
-    // Re-enable body scroll
-    document.body.style.overflow = '';
-
-    if (resetExpanded) {
-        expandedCard = null;
-    }
-
-    setTimeout(() => {
-        isAnimating = false;
-        console.log('Contraction complete');
-    }, 300);
-}
+// Removed expansion functions - cards are now static
 
 // Hero Animations
 function initHeroAnimations() {

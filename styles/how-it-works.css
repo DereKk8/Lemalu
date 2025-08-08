@@ -1,0 +1,368 @@
+/* 
+===========================================
+LEMALU - SECCIÓN CÓMO FUNCIONA
+===========================================
+Estilos para la sección de pasos con lista numerada
+*/
+
+/* Sección Principal */
+.how-it-works-section {
+    padding: 120px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.how-it-works-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Header de la Sección */
+.how-it-works-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.how-it-works-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(76, 175, 80, 0.1);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    color: #2E7D32;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.how-it-works-badge::before {
+    content: '🐾';
+    font-size: 16px;
+}
+
+.how-it-works-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 800;
+    color: #1a202c;
+    margin-bottom: 24px;
+    line-height: 1.1;
+}
+
+.how-it-works-title .highlight {
+    background: linear-gradient(135deg, #4CAF50 0%, #2196F3 50%, #FFD700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.how-it-works-description {
+    font-size: 1.25rem;
+    color: #64748b;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Lista de Pasos */
+.steps-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 60px;
+    margin-top: 80px;
+    position: relative;
+}
+
+/* Línea conectora entre pasos (solo en desktop) */
+.steps-list::before {
+    content: '';
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    right: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, #4CAF50, #2196F3, #FFD700);
+    transform: translateY(-50%);
+    opacity: 0.3;
+    z-index: 1;
+}
+
+@media (min-width: 1024px) {
+    .steps-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .steps-list::before {
+        left: 16.67%;
+        right: 16.67%;
+    }
+}
+
+/* Elemento de Paso */
+.step-item {
+    background: white;
+    border-radius: 24px;
+    padding: 40px 32px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(229, 231, 235, 0.8);
+    z-index: 2;
+}
+
+.step-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border-color: var(--step-color);
+}
+
+.step-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--step-color);
+    border-radius: 24px 24px 0 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.step-item:hover::before {
+    transform: scaleX(1);
+}
+
+/* Variables de color por paso */
+.step-item.step-1 {
+    --step-color: #4CAF50;
+    --step-color-light: #81C784;
+    --step-color-bg: rgba(76, 175, 80, 0.1);
+}
+
+.step-item.step-2 {
+    --step-color: #2196F3;
+    --step-color-light: #64B5F6;
+    --step-color-bg: rgba(33, 150, 243, 0.1);
+}
+
+.step-item.step-3 {
+    --step-color: #FFD700;
+    --step-color-light: #FFF176;
+    --step-color-bg: rgba(255, 215, 0, 0.1);
+}
+
+/* Número del Paso */
+.step-number {
+    width: 80px;
+    height: 80px;
+    background: var(--step-color-bg);
+    border: 3px solid var(--step-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--step-color);
+    margin: 0 auto 32px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.step-item:hover .step-number {
+    background: var(--step-color);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Icono del Paso */
+.step-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--step-color-bg);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    transition: all 0.3s ease;
+}
+
+.step-item:hover .step-icon {
+    background: var(--step-color);
+    transform: scale(1.05);
+}
+
+.step-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--step-color);
+    transition: color 0.3s ease;
+}
+
+.step-item:hover .step-icon svg {
+    color: white;
+}
+
+/* Contenido del Paso */
+.step-content {
+    position: relative;
+}
+
+.step-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.step-description {
+    font-size: 1rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+/* Decoración de Mascotas */
+.step-pet-decoration {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.1;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.step-item:hover .step-pet-decoration {
+    opacity: 0.3;
+    transform: scale(1.2);
+}
+
+.step-item.step-1 .step-pet-decoration {
+    content: '🐕';
+    top: -10px;
+    right: -10px;
+}
+
+.step-item.step-2 .step-pet-decoration {
+    content: '🐱';
+    top: -10px;
+    left: -10px;
+}
+
+.step-item.step-3 .step-pet-decoration {
+    content: '🐾';
+    bottom: -10px;
+    right: -10px;
+}
+
+/* Elementos Decorativos de Fondo */
+.how-it-works-bg-decoration {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.05;
+}
+
+.how-it-works-decoration-1 {
+    top: 20%;
+    left: 5%;
+    width: 100px;
+    height: 100px;
+    background: var(--color-secondary);
+    border-radius: 50%;
+    animation: float 12s ease-in-out infinite;
+}
+
+.how-it-works-decoration-2 {
+    top: 60%;
+    right: 8%;
+    width: 120px;
+    height: 120px;
+    background: var(--color-accent);
+    border-radius: 30px;
+    animation: float 15s ease-in-out infinite reverse;
+}
+
+.how-it-works-decoration-3 {
+    bottom: 20%;
+    left: 10%;
+    width: 80px;
+    height: 80px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    animation: float 10s ease-in-out infinite;
+}
+
+/* Animaciones */
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+    }
+    50% { 
+        transform: translateY(-20px) rotate(5deg); 
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .steps-list::before {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .how-it-works-section {
+        padding: 80px 0;
+    }
+    
+    .how-it-works-container {
+        padding: 0 20px;
+    }
+    
+    .steps-list {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-top: 60px;
+    }
+    
+    .step-item {
+        padding: 32px 24px;
+    }
+    
+    .how-it-works-header {
+        margin-bottom: 60px;
+    }
+    
+    .step-number {
+        width: 70px;
+        height: 70px;
+        font-size: 1.75rem;
+        margin-bottom: 24px;
+    }
+    
+    .step-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 20px;
+    }
+    
+    .step-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .how-it-works-container {
+        padding: 0 16px;
+    }
+    
+    .step-item {
+        padding: 28px 20px;
+    }
+}

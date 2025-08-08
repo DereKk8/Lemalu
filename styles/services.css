@@ -318,6 +318,46 @@ Estilos para la sección de servicios con tarjetas modernas
     50% { transform: translateY(-30px) rotate(10deg); }
 }
 
+/* Decoraciones adicionales de mascotas en servicios */
+.services-section::before {
+    content: '🐾';
+    position: absolute;
+    top: 10%;
+    left: 3%;
+    font-size: 3rem;
+    opacity: 0.18;
+    animation: petWalk 12s ease-in-out infinite;
+}
+
+.services-section::after {
+    content: '🐕‍🦺';
+    position: absolute;
+    bottom: 15%;
+    right: 5%;
+    font-size: 3.5rem;
+    opacity: 0.18;
+    animation: petWalk 14s ease-in-out infinite reverse;
+}
+
+@keyframes petWalk {
+    0%, 100% { 
+        transform: translateX(0px) translateY(0px) rotate(0deg); 
+        opacity: 0.1;
+    }
+    25% { 
+        transform: translateX(10px) translateY(-5px) rotate(2deg); 
+        opacity: 0.15;
+    }
+    50% { 
+        transform: translateX(-5px) translateY(-10px) rotate(-2deg); 
+        opacity: 0.2;
+    }
+    75% { 
+        transform: translateX(15px) translateY(-8px) rotate(3deg); 
+        opacity: 0.15;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .services-section {

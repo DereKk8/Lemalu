@@ -228,8 +228,127 @@ function initDropdowns() {
     });
 }
 
+// Portal Dropdown Functionality
+function initPortalDropdown() {
+    const portalDropdown = document.querySelector('.portal-dropdown');
+    const portalButton = document.querySelector('.btn-portal-access');
+    const portalMenu = document.querySelector('.portal-dropdown-menu');
+    
+    if (!portalDropdown || !portalButton || !portalMenu) return;
+    
+    let isPortalOpen = false;
+    let timeoutId;
+    
+    // Mouse events for desktop
+    portalDropdown.addEventListener('mouseenter', () => {
+        clearTimeout(timeoutId);
+        // Delay de 100ms para evitar apertura accidental
+        timeoutId = setTimeout(() => {
+            openPortalDropdown();
+        }, 100);
+    });
+    
+    portalDropdown.addEventListener('mouseleave', () => {
+        clearTimeout(timeoutId);
+        // Delay más largo para permitir navegar al dropdown
+        timeoutId = setTimeout(() => {
+            closePortalDropdown();
+        }, 300);
+    });
+    
+    // Mantener abierto cuando el mouse está sobre el dropdown
+    portalMenu.addEventListener('mouseenter', () => {
+        clearTimeout(timeoutId);
+    });
+    
+    portalMenu.addEventListener('mouseleave', () => {
+        timeoutId = setTimeout(() => {
+            closePortalDropdown();
+        }, 300);
+    });
+    
+    // Click events for mobile/tablet
+    portalButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (window.innerWidth <= 1024) {
+            togglePortalDropdown();
+        }
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (isPortalOpen && !portalDropdown.contains(e.target)) {
+            closePortalDropdown();
+        }
+    });
+    
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isPortalOpen) {
+            closePortalDropdown();
+        }
+    });
+    
+    // Portal option analytics/tracking y hover mejorado
+    const portalOptions = document.querySelectorAll('.portal-option');
+    portalOptions.forEach(option => {
+        // Mantener dropdown abierto al hacer hover en las opciones
+        option.addEventListener('mouseenter', () => {
+            clearTimeout(timeoutId);
+        });
+        
+        option.addEventListener('mouseleave', () => {
+            timeoutId = setTimeout(() => {
+                closePortalDropdown();
+            }, 300);
+        });
+        
+        option.addEventListener('click', (e) => {
+            const portalType = option.classList.contains('client-portal') ? 'client' : 'admin';
+            console.log(`Navegando a portal: ${portalType}`);
+            
+            // Cerrar dropdown después del click
+            setTimeout(() => {
+                closePortalDropdown();
+            }, 100);
+            
+            // Here you can add analytics tracking
+            // trackPortalAccess(portalType);
+        });
+    });
+    
+    function openPortalDropdown() {
+        isPortalOpen = true;
+        portalDropdown.classList.remove('closed');
+        portalDropdown.classList.add('open');
+    }
+    
+    function closePortalDropdown() {
+        isPortalOpen = false;
+        portalDropdown.classList.remove('open');
+        portalDropdown.classList.add('closed');
+    }
+    
+    // Asegurar que el dropdown empiece cerrado
+    portalDropdown.classList.add('closed');
+    closePortalDropdown();
+    
+    function togglePortalDropdown() {
+        if (isPortalOpen) {
+            closePortalDropdown();
+        } else {
+            openPortalDropdown();
+        }
+    }
+}
+
 // Initialize dropdowns
-document.addEventListener('DOMContentLoaded', initDropdowns);
+document.addEventListener('DOMContentLoaded', function() {
+    initDropdowns();
+    initPortalDropdown();
+});
 
 // Export functions for external use
 window.LemaluNavbar = {

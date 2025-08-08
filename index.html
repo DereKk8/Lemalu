@@ -100,8 +100,46 @@
                 </div>
             </div>
 
-            <!-- CTA Buttons -->
+            <!-- Portal Access & CTA Buttons -->
             <div class="navbar-cta">
+                <!-- Portal Access Dropdown -->
+                <div class="portal-dropdown closed">
+                    <button class="btn-portal-access">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                        Portal
+                        <svg class="dropdown-arrow" width="12" height="12" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M7 10l5 5 5-5z"/>
+                        </svg>
+                    </button>
+                    <div class="portal-dropdown-menu">
+                        <a href="/client-portal" class="portal-option client-portal">
+                            <div class="portal-icon">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                            </div>
+                            <div class="portal-info">
+                                <span class="portal-title">Portal Cliente</span>
+                                <span class="portal-subtitle">Accede a tu historial y citas</span>
+                            </div>
+                        </a>
+                        <div class="portal-divider"></div>
+                        <a href="/admin-portal" class="portal-option admin-portal">
+                            <div class="portal-icon">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                                </svg>
+                            </div>
+                            <div class="portal-info">
+                                <span class="portal-title">Portal Admin</span>
+                                <span class="portal-subtitle">Panel de administración</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
                 <button class="btn-cta-secondary">Agendar Cita</button>
                 <button class="btn-cta-primary">Comenzar</button>
             </div>
@@ -122,6 +160,19 @@
                                   <a href="#como-funciona" class="mobile-nav-link">Como Funciona</a>
                 <a href="#contacto" class="mobile-nav-link">Contacto</a>
                 <a href="#blog" class="mobile-nav-link">Blog</a>
+                <div class="mobile-nav-divider"></div>
+                <a href="/client-portal" class="mobile-nav-link mobile-portal-link">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                    Portal Cliente
+                </a>
+                <a href="/admin-portal" class="mobile-nav-link mobile-portal-link admin">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                    </svg>
+                    Portal Admin
+                </a>
                 <div class="mobile-nav-divider"></div>
                 <a href="#emergencias" class="mobile-nav-link">Emergencias 24/7</a>
                 <a href="#especialidades" class="mobile-nav-link">Especialidades</a>

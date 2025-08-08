@@ -419,3 +419,281 @@ Navbar súper limpio y moderno inspirado en Koala
         transform: scale(1.1) rotate(5deg); 
     }
 }
+
+/* Portal Access Dropdown Styles */
+.portal-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.portal-dropdown.closed .portal-dropdown-menu {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-8px) !important;
+    pointer-events: none !important;
+}
+
+.btn-portal-access {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: rgba(33, 150, 243, 0.1);
+    border: 1.5px solid rgba(33, 150, 243, 0.3);
+    color: #2196F3;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.btn-portal-access:hover {
+    background: rgba(33, 150, 243, 0.15);
+    border-color: #2196F3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(33, 150, 243, 0.2);
+}
+
+.dropdown-arrow {
+    transition: transform 0.3s ease;
+}
+
+.portal-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Portal Dropdown Menu */
+.portal-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    background: white;
+    border-radius: 16px;
+    padding: 12px;
+    min-width: 280px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(229, 231, 235, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    pointer-events: none;
+}
+
+/* Zona de hover extendida para mejor UX */
+.portal-dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 0;
+    right: 0;
+    height: 16px;
+    background: transparent;
+    pointer-events: auto;
+}
+
+.portal-dropdown:hover .portal-dropdown-menu,
+.portal-dropdown.open .portal-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Estado abierto estable */
+.portal-dropdown.open .portal-dropdown-menu::before {
+    pointer-events: auto;
+}
+
+/* Portal Options */
+.portal-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.portal-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--portal-primary), var(--portal-secondary));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.portal-option:hover::before {
+    opacity: 0.1;
+}
+
+.portal-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Prevenir cierre accidental al mover el mouse rápidamente */
+.portal-option {
+    position: relative;
+}
+
+.portal-option::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    bottom: -4px;
+    left: -4px;
+    right: -4px;
+    background: transparent;
+    pointer-events: auto;
+    z-index: -1;
+}
+
+/* Portal Option Variants */
+.portal-option.client-portal {
+    --portal-primary: #4CAF50;
+    --portal-secondary: #81C784;
+}
+
+.portal-option.admin-portal {
+    --portal-primary: #FF6B35;
+    --portal-secondary: #FF8A65;
+}
+
+/* Portal Icon */
+.portal-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--portal-primary-rgb), 0.1);
+    color: var(--portal-primary);
+    transition: all 0.3s ease;
+}
+
+.client-portal .portal-icon {
+    --portal-primary-rgb: 76, 175, 80;
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+}
+
+.admin-portal .portal-icon {
+    --portal-primary-rgb: 255, 107, 53;
+    background: rgba(255, 107, 53, 0.1);
+    color: #FF6B35;
+}
+
+.portal-option:hover .portal-icon {
+    transform: scale(1.1);
+    background: var(--portal-primary);
+    color: white;
+}
+
+/* Portal Info */
+.portal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.portal-title {
+    font-weight: 600;
+    font-size: 15px;
+    color: #1a202c;
+}
+
+.portal-subtitle {
+    font-size: 13px;
+    color: #64748b;
+}
+
+/* Portal Divider */
+.portal-divider {
+    height: 1px;
+    background: rgba(229, 231, 235, 0.8);
+    margin: 8px 0;
+}
+
+/* Mobile Portal Links */
+.mobile-portal-link {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px !important;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.mobile-portal-link svg {
+    flex-shrink: 0;
+}
+
+.mobile-portal-link:not(.admin) {
+    color: #4CAF50;
+    background: rgba(76, 175, 80, 0.05);
+    border-left: 3px solid #4CAF50;
+}
+
+.mobile-portal-link.admin {
+    color: #FF6B35;
+    background: rgba(255, 107, 53, 0.05);
+    border-left: 3px solid #FF6B35;
+}
+
+.mobile-portal-link:hover {
+    transform: translateX(4px);
+    background: rgba(var(--link-color), 0.1);
+}
+
+.mobile-portal-link:not(.admin):hover {
+    --link-color: 76, 175, 80;
+}
+
+.mobile-portal-link.admin:hover {
+    --link-color: 255, 107, 53;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .portal-dropdown {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .portal-dropdown-menu {
+        min-width: 240px;
+        right: -20px;
+    }
+    
+    .portal-option {
+        padding: 10px;
+    }
+    
+    .portal-icon {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .portal-title {
+        font-size: 14px;
+    }
+    
+    .portal-subtitle {
+        font-size: 12px;
+    }
+}

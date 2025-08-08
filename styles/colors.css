@@ -1,0 +1,78 @@
+/* 
+===========================================
+LEMALU - PALETA DE COLORES
+===========================================
+Paleta inspirada en amarillo, verde y azul
+con variaciones para crear un diseño moderno
+*/
+
+:root {
+    /* Colores Principales */
+    --lemalu-yellow: #FFD700;      /* Amarillo dorado - principal */
+    --lemalu-yellow-light: #FFF176; /* Amarillo claro */
+    --lemalu-yellow-dark: #FFC107;  /* Amarillo oscuro */
+    
+    --lemalu-green: #4CAF50;       /* Verde fresco - secundario */
+    --lemalu-green-light: #81C784; /* Verde claro */
+    --lemalu-green-dark: #388E3C;  /* Verde oscuro */
+    
+    --lemalu-blue: #2196F3;        /* Azul moderno - acento */
+    --lemalu-blue-light: #64B5F6;  /* Azul claro */
+    --lemalu-blue-dark: #1976D2;   /* Azul oscuro */
+    
+    /* Colores Neutros */
+    --lemalu-white: #FFFFFF;
+    --lemalu-gray-50: #FAFAFA;
+    --lemalu-gray-100: #F5F5F5;
+    --lemalu-gray-200: #EEEEEE;
+    --lemalu-gray-300: #E0E0E0;
+    --lemalu-gray-400: #BDBDBD;
+    --lemalu-gray-500: #9E9E9E;
+    --lemalu-gray-600: #757575;
+    --lemalu-gray-700: #616161;
+    --lemalu-gray-800: #424242;
+    --lemalu-gray-900: #212121;
+    
+    /* Gradientes */
+    --gradient-primary: linear-gradient(135deg, var(--lemalu-yellow) 0%, var(--lemalu-green) 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--lemalu-blue) 0%, var(--lemalu-green) 100%);
+    --gradient-accent: linear-gradient(135deg, var(--lemalu-yellow-light) 0%, var(--lemalu-blue-light) 100%);
+    
+    /* Sombras */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-yellow: 0 10px 25px rgba(255, 215, 0, 0.3);
+    --shadow-green: 0 10px 25px rgba(76, 175, 80, 0.3);
+    --shadow-blue: 0 10px 25px rgba(33, 150, 243, 0.3);
+}
+
+/* Clases de utilidad para colores */
+.text-yellow { color: var(--lemalu-yellow); }
+.text-yellow-light { color: var(--lemalu-yellow-light); }
+.text-yellow-dark { color: var(--lemalu-yellow-dark); }
+
+.text-green { color: var(--lemalu-green); }
+.text-green-light { color: var(--lemalu-green-light); }
+.text-green-dark { color: var(--lemalu-green-dark); }
+
+.text-blue { color: var(--lemalu-blue); }
+.text-blue-light { color: var(--lemalu-blue-light); }
+.text-blue-dark { color: var(--lemalu-blue-dark); }
+
+.bg-yellow { background-color: var(--lemalu-yellow); }
+.bg-yellow-light { background-color: var(--lemalu-yellow-light); }
+.bg-yellow-dark { background-color: var(--lemalu-yellow-dark); }
+
+.bg-green { background-color: var(--lemalu-green); }
+.bg-green-light { background-color: var(--lemalu-green-light); }
+.bg-green-dark { background-color: var(--lemalu-green-dark); }
+
+.bg-blue { background-color: var(--lemalu-blue); }
+.bg-blue-light { background-color: var(--lemalu-blue-light); }
+.bg-blue-dark { background-color: var(--lemalu-blue-dark); }
+
+.bg-gradient-primary { background: var(--gradient-primary); }
+.bg-gradient-secondary { background: var(--gradient-secondary); }
+.bg-gradient-accent { background: var(--gradient-accent); }

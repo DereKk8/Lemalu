@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="styles/hero.css">
     <link rel="stylesheet" href="styles/services.css">
     <link rel="stylesheet" href="styles/how-it-works.css">
+    <link rel="stylesheet" href="styles/testimonials.css">
     
     <!-- TailwindCSS Configuration -->
     <script>
@@ -612,8 +613,93 @@
         </div>
     </section>
 
+    <!-- Testimonios/Estadísticas (Carrusel) -->
+    <section id="estadisticas" class="testimonials-section">
+        <div class="testimonials-container">
+            <div class="testimonials-header">
+                <div class="testimonials-badge">Beneficios de atención temprana</div>
+                <h2 class="testimonials-title">Lo que dice la evidencia médica</h2>
+                <p class="testimonials-subtitle">Cifras que respaldan actuar a tiempo ante signos de enfermedad</p>
+            </div>
+
+            <div class="carousel-bleed">
+            <div class="carousel">
+                <div class="carousel-viewport">
+                    <div class="carousel-track">
+                        <!-- Item 1 -->
+                        <article class="t-card">
+                            <header class="t-card-header">
+                                <div class="t-pet"><img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?w=120&h=120&fit=crop&crop=faces" alt="pet"/></div>
+                                <div class="t-title">Detección precoz</div>
+                            </header>
+                            <div class="t-stat">3×</div>
+                            <p class="t-desc">
+                                Las mascotas evaluadas <span class="t-emphasis">dentro de las primeras 24h</span> desde el inicio de síntomas
+                                tienen hasta <span class="t-emphasis">3 veces más</span> probabilidad de resolver cuadros agudos sin complicaciones.
+                            </p>
+                            <p class="t-footnote">Fuente: consenso clínico veterinario, 2023</p>
+                        </article>
+
+                        <!-- Item 2 -->
+                        <article class="t-card">
+                            <header class="t-card-header">
+                                <div class="t-pet"><img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=120&h=120&fit=crop&crop=faces" alt="pet"/></div>
+                                <div class="t-title">Recuperación</div>
+                            </header>
+                            <div class="t-stat">-40%</div>
+                            <p class="t-desc">
+                                Iniciar tratamiento temprano reduce en promedio un <span class="t-emphasis">40%</span> el tiempo de recuperación y
+                                mejora la respuesta a terapias de soporte.
+                            </p>
+                            <p class="t-footnote">Datos agregados de clínicas urbanas, 2022-2024</p>
+                        </article>
+
+                        <!-- Item 3 -->
+                        <article class="t-card">
+                            <header class="t-card-header">
+                                <div class="t-pet"><img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?w=120&h=120&fit=crop&crop=faces" alt="pet"/></div>
+                                <div class="t-title">Costo total</div>
+                            </header>
+                            <div class="t-stat">-35%</div>
+                            <p class="t-desc">
+                                La atención oportuna disminuye procedimientos complejos y hospitalizaciones, reduciendo el <span class="t-emphasis">costo total
+                                del episodio</span> hasta en un <span class="t-emphasis">35%</span>.
+                            </p>
+                            <p class="t-footnote">Estimación basada en casuística interna</p>
+                        </article>
+
+                        <!-- Item 4 -->
+                        <article class="t-card">
+                            <header class="t-card-header">
+                                <div class="t-pet"><img src="https://plus.unsplash.com/premium_photo-1710406095492-7e62eba19745?q=80&w=1502&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="pet"/></div>
+                                <div class="t-title">Supervivencia</div>
+                            </header>
+                            <div class="t-stat">+25%</div>
+                            <p class="t-desc">
+                                En patologías tiempo-dependientes, acudir pronto se asocia a un <span class="t-emphasis">incremento del 25%</span>
+                                en la supervivencia libre de secuelas.
+                            </p>
+                            <p class="t-footnote">Revisión de literatura clínica, 2021-2024</p>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Controls deshabilitados (navegación por indicadores) -->
+
+                <div class="carousel-indicators">
+                    <span class="indicator active"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
     <!-- JavaScript -->
     <script src="js/navbar.js"></script>
     <script src="js/hero.js"></script>
+    <script src="js/testimonials.js"></script>
 </body>
 </html>

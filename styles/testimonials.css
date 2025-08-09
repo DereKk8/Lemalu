@@ -1,0 +1,250 @@
+/*
+===========================================
+LEMALU - SECCIÓN TESTIMONIOS (CAROUSEL)
+===========================================
+Carrusel con "testimonios" informativos (ventajas de atención temprana)
+*/
+
+.testimonials-section {
+  position: relative;
+  padding: 100px 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  overflow: hidden;
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.testimonials-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(33, 150, 243, 0.1);
+  border: 1px solid rgba(33, 150, 243, 0.3);
+  color: #1e3a8a;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.testimonials-title {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: #1a202c;
+}
+
+.testimonials-subtitle {
+  margin-top: 10px;
+  color: #64748b;
+  font-size: 1.05rem;
+}
+
+/* Carousel base */
+.carousel-bleed { /* full-bleed wrapper so the viewport ocuppies full width */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+.carousel {
+  position: relative;
+  margin-top: 32px;
+  padding-bottom: 20px; /* Espacio adicional para sombras expandidas */
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  padding: 20px 0; /* Espacio para el efecto hover */
+}
+
+.carousel-track {
+  display: flex;
+  gap: 24px;
+  will-change: transform;
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Cards */
+.t-card {
+  min-width: 617px;
+  max-width: 617px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid rgba(229, 231, 235, 0.8);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  padding: 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  transform: translateY(0) scale(1);
+}
+
+.t-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  border-color: rgba(33, 150, 243, 0.4);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.t-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.t-pet {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(0,0,0,0.06);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.t-pet img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  transition: transform 0.3s ease;
+}
+
+.t-card:hover .t-pet {
+  transform: scale(1.1);
+  border-color: rgba(33, 150, 243, 0.5);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.t-card:hover .t-pet img {
+  transform: scale(1.1);
+}
+
+.t-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.t-icon.blue { background: linear-gradient(135deg, #2196F3, #64B5F6); }
+.t-icon.green { background: linear-gradient(135deg, #4CAF50, #81C784); }
+.t-icon.amber { background: linear-gradient(135deg, #FFC107, #FFD54F); }
+
+.t-title {
+  font-weight: 800;
+  color: #1a202c;
+  transition: color 0.3s ease;
+}
+
+.t-card:hover .t-title {
+  color: #1e40af;
+}
+
+.t-stat {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a202c;
+  transition: all 0.3s ease;
+}
+
+.t-card:hover .t-stat {
+  color: #2196F3;
+  transform: scale(1.02);
+}
+
+.t-emphasis {
+  font-weight: 700;
+  color: #1e40af;
+}
+
+.t-desc {
+  margin-top: 8px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.t-footnote {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* Controls */
+.carousel-controls {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.carousel-btn {
+  pointer-events: all;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255,255,255,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.carousel-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.1); }
+.carousel-btn svg { width: 20px; height: 20px; color: #334155; }
+
+.carousel-btn.prev { position: absolute; left: -6px; }
+.carousel-btn.next { position: absolute; right: -6px; }
+
+/* Indicators */
+.carousel-indicators {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.indicator:hover {
+  background: #94a3b8;
+  transform: scale(1.1);
+}
+
+.indicator.active { 
+  background: #2196F3; 
+  transform: scale(1.3); 
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .testimonials-container { padding: 0 20px; }
+  .t-card { min-width: 300px; max-width: 300px; }
+  .carousel-track { gap: 16px; }
+}
+
+

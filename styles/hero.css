@@ -1,0 +1,405 @@
+/* 
+===========================================
+LEMALU - HERO SECTION
+===========================================
+Hero Section moderno con tarjetas expansivas
+*/
+
+/* Hero Container */
+.hero-section {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    position: relative;
+    overflow: hidden;
+    padding-top: 120px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    min-height: 70vh;
+}
+
+/* Left Content */
+.hero-text {
+    z-index: 10;
+    position: relative;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    color: #B45309;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.hero-badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #FFD700;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #1a202c;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+}
+
+.hero-title .highlight {
+    background: linear-gradient(135deg, #FFD700 0%, #4CAF50 50%, #2196F3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    max-width: 500px;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.btn-hero-primary {
+    background: linear-gradient(135deg, #FFD700 0%, #4CAF50 100%);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+}
+
+.btn-hero-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+}
+
+.btn-hero-secondary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #64748b;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-hero-secondary:hover {
+    color: #2196F3;
+}
+
+/* Right Content - Cards Container */
+.hero-cards {
+    position: relative;
+    height: 600px;
+    width: 100%;
+}
+
+.cards-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 16px;
+}
+
+/* Service Cards */
+.service-card {
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--card-color) 0%, var(--card-color-light) 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Card States with Softer Background Colors */
+.service-card.emergency {
+    --card-color: #ef4444;
+    --card-color-light: #fca5a5;
+    --card-color-rgb: 239, 68, 68;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(220, 38, 38, 0.2) 100%);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #dc2626;
+}
+
+.service-card.consultation {
+    --card-color: #22c55e;
+    --card-color-light: #86efac;
+    --card-color-rgb: 34, 197, 94;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(22, 163, 74, 0.2) 100%);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    color: #16a34a;
+}
+
+.service-card.surgery {
+    --card-color: #3b82f6;
+    --card-color-light: #93c5fd;
+    --card-color-rgb: 59, 130, 246;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(37, 99, 235, 0.2) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: #1e40af;
+}
+
+/* Card Content */
+.card-header {
+    padding: 32px 24px 0;
+    text-align: center;
+}
+
+.card-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    background: linear-gradient(135deg, var(--card-color) 0%, var(--card-color-light) 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(var(--card-color-rgb), 0.3);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: inherit;
+    margin-bottom: 8px;
+}
+
+.card-subtitle {
+    font-size: 0.9rem;
+    color: inherit;
+    opacity: 0.8;
+    margin-bottom: 24px;
+}
+
+.card-preview {
+    padding: 0 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding: 0 8px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(var(--card-color-rgb), 0.2);
+    gap: 4px;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-size: 0.85rem;
+    color: inherit;
+    opacity: 0.7;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: inherit;
+    line-height: 1.2;
+}
+
+/* Removed expansion functionality - cards are now static */
+
+/* Static Cards - Subtle Hover Effect */
+.service-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(var(--card-color-rgb), 0.2);
+}
+
+.service-card:hover .card-icon {
+    transform: scale(1.05);
+}
+
+/* Background Decorations */
+.hero-bg-decoration {
+    position: absolute;
+    pointer-events: none;
+}
+
+.decoration-1 {
+    top: 10%;
+    right: 10%;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #FFD700, #4CAF50);
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: float 6s ease-in-out infinite;
+}
+
+.decoration-2 {
+    bottom: 20%;
+    left: 5%;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #2196F3, #4CAF50);
+    border-radius: 30px;
+    opacity: 0.1;
+    animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+/* Decoraciones adicionales de mascotas */
+.hero-section::before {
+    content: '🐕';
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    font-size: 4rem;
+    opacity: 0.2;
+    animation: petFloat 8s ease-in-out infinite;
+    z-index: 1;
+}
+
+.hero-section::after {
+    content: '🐱';
+    position: absolute;
+    bottom: 20%;
+    right: 8%;
+    font-size: 3.5rem;
+    opacity: 0.2;
+    animation: petFloat 10s ease-in-out infinite reverse;
+    z-index: 1;
+}
+
+@keyframes petFloat {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg) scale(1); 
+        opacity: 0.1;
+    }
+    50% { 
+        transform: translateY(-20px) rotate(5deg) scale(1.1); 
+        opacity: 0.2;
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .hero-cards {
+        height: 500px;
+    }
+    
+    .cards-container {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-container {
+        padding: 0 20px;
+    }
+    
+    .hero-section {
+        padding-top: 100px;
+    }
+    
+    .cards-container {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .service-card {
+        min-height: 200px;
+    }
+    
+    .expanded-features {
+        grid-template-columns: 1fr;
+    }
+}

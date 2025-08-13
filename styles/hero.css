@@ -8,7 +8,7 @@ Hero Section moderno con tarjetas expansivas
 /* Hero Container */
 .hero-section {
     min-height: 100vh;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    background: #F8FAFC;
     position: relative;
     overflow: hidden;
     padding-top: 120px;
@@ -299,9 +299,11 @@ Hero Section moderno con tarjetas expansivas
 }
 
 /* Background Decorations */
+/* Background Decorations - Mejoradas */
 .hero-bg-decoration {
     position: absolute;
     pointer-events: none;
+    z-index: 1; /* Asegurar que estén detrás del contenido */
 }
 
 .decoration-1 {
@@ -311,7 +313,7 @@ Hero Section moderno con tarjetas expansivas
     height: 100px;
     background: linear-gradient(135deg, #FFD700, #4CAF50);
     border-radius: 50%;
-    opacity: 0.1;
+    opacity: 0.05; /* Reducida significativamente */
     animation: float 6s ease-in-out infinite;
 }
 
@@ -322,23 +324,18 @@ Hero Section moderno con tarjetas expansivas
     height: 150px;
     background: linear-gradient(135deg, #2196F3, #4CAF50);
     border-radius: 30px;
-    opacity: 0.1;
+    opacity: 0.05; /* Reducida significativamente */
     animation: float 8s ease-in-out infinite reverse;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
-}
-
-/* Decoraciones adicionales de mascotas */
+/* Decoraciones de mascotas - Reducir opacidad y posicionar mejor */
 .hero-section::before {
     content: '🐕';
     position: absolute;
     top: 15%;
     left: 5%;
     font-size: 4rem;
-    opacity: 0.2;
+    opacity: 0.08; /* Muy reducida */
     animation: petFloat 8s ease-in-out infinite;
     z-index: 1;
 }
@@ -346,12 +343,28 @@ Hero Section moderno con tarjetas expansivas
 .hero-section::after {
     content: '🐱';
     position: absolute;
-    bottom: 20%;
-    right: 8%;
+    bottom: 30%;
+    right: 10%;
     font-size: 3.5rem;
-    opacity: 0.2;
+    opacity: 0.08; /* Muy reducida */
     animation: petFloat 10s ease-in-out infinite reverse;
     z-index: 1;
+}
+
+/* Asegurar que el contenido tenga z-index superior */
+.hero-text {
+    z-index: 10;
+    position: relative;
+    background: rgba(248, 250, 252, 0.95); /* Fondo semi-transparente para mejor legibilidad */
+    border-radius: 20px;
+    padding: 32px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+}
+
+.hero-cards {
+    z-index: 10;
+    position: relative;
 }
 
 @keyframes petFloat {
